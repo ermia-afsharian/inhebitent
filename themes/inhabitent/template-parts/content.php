@@ -1,59 +1,42 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying posts.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package inhabiten
+ * @package RED_Starter_Theme
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); if(  is_archive() ){ echo 'product-article' ;}; ?> " <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		<div class="product-block">
+			<div class="<?php if(is_home()){ echo 'post-header';}else{ echo 'product-header';}; ?>">
+				<?php if ( has_post_thumbnail() ) : ?>
+				<?php the_post_thumbnail( 'large' ); ?>
+				<?php endif; ?>
+				<img src="<?php echo CFS()->get( 'image' );?>" >
+				<div class="product-describtion">
+					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+					<?php if(is_home()){ ?>
+					<p><?php red_starter_posted_on(); ?> / <?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?> / <?php red_starter_posted_by(); ?></p>
+					<?php };?>
+					<?php if(!is_home()){ ?>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				inhabiten_posted_on();
-				inhabiten_posted_by();
-				?>
-			</div><!-- .entry-meta -->
+					<p><?php echo CFS()->get( 'price' );?></p>
+					<?php };?>
+					
+				</div>
+			</div>
+		<?php if ( 'post' === get_post_type() ) : ?>
+		<div class="entry-meta">
+			
+		</div><!-- .entry-meta -->
 		<?php endif; ?>
+		</div>
 	</header><!-- .entry-header -->
 
-	<?php inhabiten_post_thumbnail(); ?>
-
 	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'inhabiten' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'inhabiten' ),
-			'after'  => '</div>',
-		) );
-		?>
+		
+		<?php if( ! is_archive() ){ the_excerpt();}; ?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php inhabiten_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-## -->

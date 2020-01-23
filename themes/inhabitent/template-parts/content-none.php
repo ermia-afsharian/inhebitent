@@ -1,51 +1,32 @@
 <?php
 /**
- * Template part for displaying a message that posts cannot be found
+ * Template part for displaying a message that posts cannot be found.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package inhabiten
+ * @package RED_Starter_Theme
  */
 
 ?>
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'inhabiten' ); ?></h1>
+		<h1 class="page-title"><?php esc_html( 'Nothing Found' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) :
+		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			printf(
-				'<p>' . wp_kses(
-					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'inhabiten' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
+			<p><?php printf( wp_kses( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-		elseif ( is_search() ) :
-			?>
+		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'inhabiten' ); ?></p>
-			<?php
-			get_search_form();
+			<p><?php echo esc_html( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.' ); ?></p>
+			<?php get_search_form(); ?>
 
-		else :
-			?>
+		<?php else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'inhabiten' ); ?></p>
-			<?php
-			get_search_form();
+			<p><?php echo esc_html( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.' ); ?></p>
+			<?php get_search_form(); ?>
 
-		endif;
-		?>
+		<?php endif; ?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->

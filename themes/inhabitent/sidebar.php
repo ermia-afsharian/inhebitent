@@ -1,10 +1,8 @@
 <?php
 /**
- * The sidebar containing the main widget area
+ * The sidebar containing the main widget area.s
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package inhabiten
+ * @package RED_Starter_Theme
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
@@ -12,6 +10,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area">
+<div id="secondary" class="widget-area" role="complementary">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+</div><!-- #secondary -->

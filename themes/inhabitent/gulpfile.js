@@ -1,56 +1,84 @@
-const gulp = require("gulp"); // Load Gulp!
-// Now that we've installed the terser package we can require it:
-const terser = require("gulp-terser"),
-  rename = require("gulp-rename"),
-  eslint = require("gulp-eslint"),
-  sass= require('gulp-sass'),
-  cssnano= require('gulp-cssnano'),
-  autoprefixer= require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync');
+const cssnano = require('gulp-cssnano');
+const eslint = require('gulp-eslint');
+const gulp = require('gulp');
+const prettyError = require('gulp-prettyerror');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const terser = require('gulp-terser');
+const babel = require('gulp-babel');
 
-  const browserSync = require('browser-sync').create();
+// Create basic Gulp tasks
 
-gulp.task('sass',function () {
+gulp.task('sass', function() {
   return gulp
-  .src ('./sass/main.scss')
-  .pipe(sass())
-  .pipe(cssnano())
-  .pipe(autoprefixer ({
-    browsers: ["last 2 versions"]
-  }) )
-  .pipe(cssnano())
-  .pipe(rename("style.min.css"))
-  .pipe(gulp.dest('./build/css'))
-})
-gulp.task("scripts", function() {
+    .src('./sass/style.scss', { sourcemaps: true })
+    .pipe(sourcemaps.init())
+    .pipe(prettyError())
+    .pipe(sass())
+    .pipe(
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    )
+    .pipe(gulp.dest('./'))
+    .pipe(cssnano())
+    .pipe(rename('style.min.css'))
+    .pipe(sourcemaps.write('../maps'))
+    .pipe(gulp.dest('./build/css'));
+});
+
+gulp.task('lint', function() {
   return gulp
-    .src('./js/index.js') // What files do we want gulp to consume?
+    .src(['./js/*.js'])
+    .pipe(prettyError())
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-    .pipe(terser()) // Call the terser function on these files
-    .pipe(rename( "index.min.js" )) // Rename the uglified file
-    .pipe(gulp.dest("./build/js")); // Where do we put the result?
+    .pipe(eslint.failAfterError());
 });
 
-// Static server
+gulp.task(
+  'scripts',
+  gulp.series('lint', function compileScripts() {
+    return gulp
+      .src('./js/*.js')
+      .pipe(
+        babel({
+          presets: ['env']
+        })
+      )
+      .pipe(terser())
+      .pipe(
+        rename({
+          extname: '.min.js'
+        })
+      )
+      .pipe(gulp.dest('./build/js'));
+  })
+);
+
+// Set-up BrowserSync and watch
+
 gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-});
-gulp.task('reload',function(done) {
-  browserSync.reload();
-  done();
-})
-gulp.task("watch", function() {
-  gulp.watch("js/*.js", gulp.series("scripts"));
-  gulp.watch("sass/*.scss", gulp.series("sass", 'reload'));
-  gulp.watch("./index.html",gulp.series("reload"));
+  const files = [
+    './build/css/*.css',
+    './build/js/*.js',
+    './*.php',
+    './**/*.php'
+  ];
 
+  browserSync.init(files, {
+    proxy: 'localhost[:8888]/[inhabitent]'
+  });
 
+  gulp.watch(files).on('change', browserSync.reload);
 });
 
-gulp.task("default", gulp.parallel('browser-sync','watch'));
-  
+gulp.task('watch', function() {
+  gulp.watch('js/*.js', gulp.series('scripts'));
+  gulp.watch('sass/*.scss', gulp.series('sass'));
+});
+
+gulp.task('default', gulp.parallel('browser-sync', 'watch'));
