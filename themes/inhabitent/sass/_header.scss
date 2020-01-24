@@ -1,0 +1,108 @@
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+.skip{
+	display: none;
+}
+.logo{
+	position: absolute;
+	background-image: url(../../images/logos/inhabitent-logo-tent-white.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 80px;
+	top: 20px;
+	left: 0;
+    margin: 0;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 50px;
+
+}
+header{
+	z-index: 1;
+}
+nav{
+	font-family:' Novecento sans wide' ,sans-serif;;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+    flex-direction: row;
+	align-items: center;
+}
+
+
+nav ul{
+	align-items: center;
+	display: flex;
+	height: 40px;
+    flex-direction: row;
+	justify-content: center;	
+	list-style-type: none;
+
+}
+
+.navigation a{
+	color: white;
+	padding: 30px 20px 10px 20px;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+}
+
+fieldset{
+	border: none;
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: nowrap;
+	label{
+		display: inline;
+		width: fit-content;
+	}
+	.search-field{
+		width: 0px;
+		background-color: none;
+		border: none;
+		transform:translate3d(30px,50%,0);
+
+		-webkit-transition: width 2s;
+		transition: width 2s;
+		
+	}
+	.opened-search{
+		width: 200px;
+		display: inline;
+	}
+	.search-submit{
+		transform:translateY(-50%);
+
+		display: inline;
+		padding-right: 0;
+		padding-left: 0;
+		color: white;
+		border: none;
+		background: none;
+		box-shadow: none;
+		text-shadow: none;
+		font-size: 16px;
+	}
+}
+.sticky-header{
+	position: sticky;
+	top: 30px;
+	color: #248a83;
+	background:rgba(255,255,255 ,.7);
+	border-bottom: 1px solid lightgray ;
+	a{
+		color: #248a83;
+		
+	}
+	.logo{
+		background-image: url(../../images/logos/inhabitent-logo-tent.svg);
+
+	}
+	.search-submit{
+		color: #248a83 ;
+	}
+}

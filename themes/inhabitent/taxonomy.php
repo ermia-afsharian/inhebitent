@@ -9,7 +9,7 @@ get_header(); ?>
 	<p><?php echo $term->description?></p>
 	
 </section>
-<main id="main" class="site-main journal-front shop-main" role="main">
+<main id="main" class="site-main product-front shop-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 

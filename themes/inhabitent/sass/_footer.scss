@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+footer.contact{
+	a{
+		color: wheat;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	i{
+		padding: 7px;
+	}
+}
+footer{
+	padding: 30px 70px ;
+	background-image: url(../../images/dark-wood.png);
+	h3{
+		color: #d99054;
+	}
+	
+}
+.text-logo{
+	padding: 30px 0;
+	display: flex;
+	justify-content: flex-end;
+}

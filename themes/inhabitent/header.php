@@ -43,11 +43,13 @@
 								<li id="" class=""><a href="/wordpress/journal/">Journal</a></li>
 								<li id="" class=""><a href="/wordpress/about/">About</a></li>
 								<li id="" class=""><a href="/wordpress/find-us/">Find Us</a></li>
-							</ul></div>						
+							</ul>
+							</div>						
 						<?php get_search_form(); ?>
 					</nav><!-- #site-navigation -->
 				</div>
 			</header>
+						
 	
 
 	<div id="content" class="site-content">

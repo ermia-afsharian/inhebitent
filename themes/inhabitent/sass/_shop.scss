@@ -1,0 +1,172 @@
+.products-type{
+	border-bottom: 1px lightgray dashed;
+	text-align: center;
+	
+	h1{
+		display: inline;
+	}
+	ul {
+		display: block;
+		margin: 0;
+		padding: 0;
+		li{
+			padding: 15px;
+			display: inline-block;
+		}
+	}
+}
+
+.product-front{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows: 1fr;
+	gap: 15px;
+	font-size: 12px;
+	padding: 80px 5vw;
+	span{
+		display: block;
+		width:100%;
+	} 
+	.black-btn{
+		width: fit-content;
+		display: block;
+		box-sizing: border-box;
+		color:black;
+		padding: 12px ;
+		border: black 1px solid;
+	}
+	h2{
+	font-size:30px ;
+	font-size: 20px;
+	color: black;
+	display: inline;
+	}
+	.navigation a{
+		color: black;
+	}
+	p{
+	
+		display:inline;
+	}
+	img{
+		width: 100%;
+		height: 15vw;
+	}
+	a{
+		color: black;
+	}
+	.journal-front-border{
+		margin-top:-5px;
+		padding: 20px;
+		border: 1px lightgray solid;
+		border-top: 5px  lightgray solid;
+	}
+}
+article.products-type{
+	border: 1px lightgray ;
+	display: flex;
+	flex-wrap: wrap;
+	
+	
+}
+
+
+.product-info {
+	text-align: center;
+	}
+	.product-info h2{
+		margin: 50px;
+		font-size: 40px;
+	}
+	.product-type{
+		margin: 0 auto;
+		width: 90vw;
+		display: grid;
+		grid-template-columns: repeat(4,1fr);
+		grid-template-rows: 1fr;
+		gap: 20px;
+	
+	}
+	.product-type-block{
+		border: 1px solid #e1e1e1 ;
+		border-top:4px solid #e1e1e1 ;
+		padding: 20px;
+		&:hover{
+		border: 1px solid #d99054 ;
+		border-top:4px solid #d99054 ;
+		}
+	}
+	
+	.product-type-block img{
+		width: 30%;
+	
+	}
+	.product-type-block a{
+		width: 70%;
+		font-size: 70%;
+		color: wheat;
+		padding: 15px;
+		background:#248A83 ;
+	}
+	.hentry{
+		margin: 0;
+	}
+	article{
+		padding: 15px;
+		margin: 0 auto;
+	}
+	img.wp-post-image{
+		width: 100%;
+		}
+	.product-header{
+		text-align: center;
+	
+		a{
+			font-weight: 100;
+			font-family: 'Marriweather';
+			color: black;
+			font-size: 15px;
+	
+		}
+		a::after{
+			content: ".............." ;
+		}
+		p{
+			font-size: 15px;
+		}
+		.product-describtion{
+			margin-top:-5px;
+			padding: 10px;
+			border: 1px solid #e1e1e1 ;
+			border-top:4px solid #e1e1e1 ;
+			padding: 20px;
+			&:hover{
+			border: 1px solid #d99054 ;
+			border-top:4px solid #d99054 ;
+			}
+		}
+	
+	}
+
+.product-main{
+	display: flex;
+	flex-direction: row;
+	margin:70px;
+	img {
+		width: 50%;
+		padding: 20px;
+		display: block;
+		height: auto;
+	}
+	.price{
+		font-size: 18px;
+		font-weight: bold;
+	}
+	header{
+		font-family:'Novecento sans wide' ,sans-serif;
+	}
+	h1{
+		text-transform: uppercase;
+		color:#d99054 ;
+	}
+}
