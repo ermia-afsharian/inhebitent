@@ -983,8 +983,67 @@ iframe {
 .content-area {
   padding: 30px; }
 
-.email-input form {
+.wpcf7-form h3 {
+  text-transform: uppercase;
+  font-size: 25px; }
+
+.wpcf7-form p {
+  font-size: 18px; }
+
+.wpcf7-form {
+  display: grid;
   grid-template-columns: 1fr; }
+  .wpcf7-form p {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 10px; }
+    .wpcf7-form p textarea {
+      background-color: #ebe9e9;
+      border: 1px lightgray solid; }
+    .wpcf7-form p input {
+      background-color: #ebe9e9;
+      border: 1px lightgray solid; }
+    .wpcf7-form p label {
+      text-transform: uppercase;
+      font-family: ' Novecento sans wide' ,sans-serif;
+      font-weight: 100; }
+      .wpcf7-form p label .required {
+        color: red; }
+  .wpcf7-form .wpcf7-submit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-transform: uppercase;
+    background-color: #248a83;
+    color: white;
+    border-radius: 0;
+    font-family: ' Novecento sans wide' ,sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 15px 25px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    text-shadow: none; }
+
+.comment-form-comment {
+  grid-column: 1/-1; }
+
+.comment-form-author {
+  grid-column: 1/span 1; }
+
+.comment-form-email {
+  grid-column: 2/span 1; }
+
+.comment-form-url {
+  grid-column: 1/-1; }
+
+.comment-form-cookies-consent {
+  grid-column: 1/-1; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -1202,6 +1261,9 @@ h3 {
 
 ul {
   list-style: none; }
+
+i {
+  padding: 5px; }
 
 a {
   text-decoration: none;

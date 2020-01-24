@@ -22,8 +22,68 @@ iframe{
 .content-area{
 	padding:30px;
 }
-.email-input{
-	form{
-	grid-template-columns: 1fr;
+.wpcf7-form{
+	h3{
+		text-transform: uppercase;
+		font-size: 25px;
 	}
+	p{
+		font-size: 18px;
+	}}
+	.wpcf7-form{
+	display: grid;
+	grid-template-columns: 1fr;
+		p{
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			textarea{
+				background-color: rgb(235, 233, 233);
+				border: 1px lightgray solid;
+
+			}
+			input{
+				background-color: rgb(235, 233, 233);
+				border: 1px lightgray solid;
+			}
+			label{
+				text-transform: uppercase;
+				font-family:' Novecento sans wide' ,sans-serif;
+				font-weight: 100;
+				.required{
+					color: red;
+				}
+			}
+		}
+		.wpcf7-submit{
+			width:fit-content;
+			text-transform: uppercase;
+			background-color: #248a83;
+			color: white;
+			border-radius: 0;
+			font-family:' Novecento sans wide' ,sans-serif;
+			font-size: 15px;
+			font-weight: 100;
+			padding:15px 25px;
+			box-shadow: none;
+			text-shadow: none;
+		}
+	}
+
+.comment-form-comment{
+	grid-column:1/-1;
+}
+.comment-form-author{
+	grid-column:1/span 1;
+
+}
+.comment-form-email{
+	grid-column:2/span 1;
+}
+.comment-form-url{
+	grid-column:1/-1;
+}
+.comment-form-cookies-consent{
+	grid-column:1/-1;
+
 }
