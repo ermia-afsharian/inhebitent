@@ -1,3 +1,6 @@
+(function ($) {
+    
+
 const searchIcon = document.getElementsByClassName('search-submit')[0];
 const searchField= document.getElementsByClassName('search-field')[0];
 const searchform= document.getElementsByTagName('fieldset')[0];
@@ -11,3 +14,4 @@ searchIcon.addEventListener('click',function (event) {
     }
 
 });
+})(jQuery);
